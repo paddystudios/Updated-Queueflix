@@ -1,0 +1,377 @@
+@font-face {
+  font-family: 'SuperRichExpanded';
+  src: url('./Assets/fonts/SuperRichExpanded_PERSONAL_USE_ONLY - Stretch.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+h2{
+  font-family: "SuperRichExpanded";
+}
+
+.queueflix-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title-section{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+
+.back-button{
+display: flex;
+justify-content: center;
+align-items: center;
+gap: 10px;
+font-size: 1.6rem;
+font-weight: bold;
+
+}
+
+.queueflix-header{
+  padding-left: 3%;
+  padding-right: 3%;
+}
+.title-section button{
+  font-size: 1rem;
+  align-self: flex-start;
+}
+
+#watchlist-title {
+  margin-top: 2rem;  
+  margin-bottom: 2rem; 
+  text-align: center; 
+}
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: flex-start;
+  padding: 0;
+  list-style: none;
+  max-width: 90%;
+  margin: 0 auto;
+}
+
+.stream-movies-now{
+display: flex;
+justify-content: flex-start;
+}
+
+.watchlist-item {
+  flex: 0 0 calc(20% - 2rem); 
+  width: 250px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding: 10px;
+  border-radius: 10px; 
+
+}
+
+
+.watchlist-item {
+  flex: 0 0 220px; 
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  padding-bottom: 7px;
+  transition: transform 0.3s ease-in-out, filter 0.3s ease-in-out; 
+  
+}
+
+.watchlist-item:hover {
+  animation: neonGlow 1.5s infinite alternate ease-in-out; 
+}
+
+
+@keyframes neonGlow {
+  0% {
+    filter: drop-shadow(0 0 0.25px rgba(255, 20, 243, 0.08)) 
+            drop-shadow(0 0 1px rgba(255, 20, 212, 0.05)); 
+  }
+  50% {
+    filter: drop-shadow(0 0 0.5px rgba(0, 221, 255, 0.09)) 
+            drop-shadow(0 0 1.5px rgba(0, 255, 255, 0.06)); 
+  }
+  100% {
+    filter: drop-shadow(0 0 1px rgba(159, 43, 226, 0.08)) 
+            drop-shadow(0 0 1.5px rgba(137, 43, 226, 0.05)); 
+  }
+}
+
+.watchlist-item h4{
+  text-align: left;
+  font-size: 2.5rem;
+  align-items: flex-start;
+}
+
+.watchlist-item:last-child {
+  border-bottom: none;
+}
+
+.remove-button {
+  all: unset;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 5em;
+  padding: 2%;
+}
+
+.edit-section{
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  align-items: center;
+}
+
+.edit-section button {
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  align-items: top;
+  fill: white;
+}
+
+p {
+  text-transform: capitalize;
+}
+
+
+.streaming-section{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1rem;
+  width: 100%;
+  
+}
+
+.imdb-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-radius:10px ;
+  border: 1px solid rgba(255, 255, 255, 0.574);
+  background: rgba(0, 0, 0, 0.433);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.616) 100%);
+}
+
+.imdb-link {
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.imdb-link:hover {
+  transform: scale(1.1);
+}
+
+button {
+  all: unset;
+}
+
+.movie-info-section{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.574);
+  border-radius: 15px;
+  background: rgba(0, 0, 0, 0.433);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.616) 100%);
+  padding: 10px;
+  width: 100%;
+  height: 285px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.movie-info-section p{
+  color: rgba(255, 255, 255, 0.813);
+}
+.streaming-section{
+  border: 1px solid rgba(255, 255, 255, 0.574);
+  border-radius: 15px;
+  background: rgb(140,140,140);
+  background: radial-gradient(circle, rgba(0, 0, 0, 0.32) 0%, rgba(0, 0, 0, 0.616) 100%);
+  padding: 10px;
+  box-shadow:
+
+  0 0 15px 5px rgba(0, 47, 255, 0.11), 
+  0 0 30px 10px rgba(0, 255, 255, 0.041); 
+}
+
+.streaming-section{
+  font-size: 1.3rem;
+}
+
+.stream-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.stream-button img {
+  width: 30px;
+  height: 30px; 
+}
+
+button {
+  all: unset; 
+  cursor: pointer; 
+  transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out; 
+}
+
+
+.remove-button:hover {
+  transform: scale(1.3); 
+  animation: neonGlow 1.5s infinite alternate ease-in-out; 
+}
+
+ button:hover {
+  transform: scale(1.3); 
+  animation: neonGlow 1.5s infinite alternate ease-in-out;
+}
+
+
+@keyframes neonGlow {
+  0% {
+    filter: drop-shadow(0 0 12px rgba(255, 20, 147, 0.9)); 
+  }
+  50% {
+    filter: drop-shadow(0 0 18px rgba(0, 150, 255, 0.9)); 
+  }
+  100% {
+    filter: drop-shadow(0 0 22px rgba(138, 43, 226, 1)); 
+  }
+}
+
+input{
+  all: unset;
+  border-radius: 5px;
+  border: 0.5px solid white;
+  background-color: rgba(0, 0, 0, 0.535);
+  color: white;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 667px) {
+  ul {
+    justify-content: center; 
+    gap: 5px;
+    padding: 0;
+
+  }
+
+  .watchlist-container{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+  }
+
+  .watchlist-item {
+    display: grid;
+    flex: 0 0 calc(50% - 1rem);
+    max-width: 50%; 
+  }
+
+
+  .watchlist-item h4 {
+    font-size: 1rem; 
+
+  }
+
+  h2{
+    font-size: 1.5rem;
+  }
+
+  .stream-movies-now{
+    font-size: 0.7rem;
+  }
+
+  p {
+    font-size: 0.7rem; 
+  }
+
+  .back-button {
+    font-size: 1rem; 
+  }
+
+  .stream-button img {
+    width: 20px;
+    height: 20px;
+  }
+  .movie-info-section{
+    font-size: 1.5rem;
+    height: 160px;
+    border-radius: 10px;
+  }
+
+  .movie-info-section p{
+    font-size: 1rem;
+  }
+
+  .streaming-section{
+    border-radius: 10px;
+  }
+}
+
+
+
+@media screen and (min-width: 768px) and (max-width: 1024px) {
+
+
+  ul {
+    justify-content: flex-start; 
+    gap: 1rem;
+  }
+
+  .watchlist-item {
+    flex: 0 0 calc(33.33% - 1.5rem); 
+    max-width: 31%; 
+    padding: 15px; 
+    gap: 15px;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .stream-button img {
+    width: 22px;
+    height: 22px;
+  }
+
+  .queueflix-header {
+    flex-direction: row; 
+    justify-content: space-between; 
+    align-items: center;
+  }
+
+
+  .queueflix-header h2 {
+    font-size: 4rem; 
+  }
+
+  #watchlist-title {
+    margin-top: 1.5rem; 
+    margin-bottom: 1.5rem;
+    font-size: 2.6rem; 
+  }
+
+  .movie-info-section {
+    height: 290px;
+    padding: 15px;
+    font-size: 3rem;
+  }
+
+  .streaming-section{
+    height: 60px;
+  }
+}
