@@ -3,6 +3,112 @@
 
 Find out where to stream your favorite movies and TV shows!
 
+# **Summary**
+A web app for managing your movie watchlist with:
+
+Add/remove movies
+
+Edit movie details
+
+Google Analytics tracking
+
+MongoDB database backend
+
+# **What you need**
+
+Node.js (v16+)
+
+MongoDB
+
+Google Analytics ID 
+
+See env. file! <3
+
+# **SET UP**
+
+Local testing: Just install MongoDB and run mongod
+
+No remote DB config needed (uses localhost)
+
+
+**Install Dependencies:**
+npm install
+
+
+**Configure environment:**
+See .env file
+
+
+**Start App**
+node server.js
+
+
+# **Accessibility (A11y) & SEO** 
+
+Keyboard navigation supported for all actions
+
+ARIA labels on interactive elements
+
+Semantic HTML (proper heading hierarchy, landmarks)
+
+Responsive design works on mobile/desktop
+
+OpenGraph meta tags for social sharing
+
+# **Tracking**
+
+Google Analytics 4 tracks:
+
+Page views
+
+Watchlist additions/removals
+
+Privacy measures:
+
+IP anonymization enabled
+
+No personal data collected
+
+Consent check before tracking
+
+# **Security**
+Protected Against:
+XSS (Cross-Site Scripting)
+
+User input sanitized with DOM escaping
+
+React's built-in XSS protection
+
+Database Injection
+
+MongoDB queries use parameterized methods
+
+No raw user input in queries
+
+
+## Database Setup
+
+This project uses a **local MongoDB database**. To run it:
+
+1. **Install MongoDB Community Edition** (if not already installed):
+   - [Download for Windows/macOS/Linux](https://www.mongodb.com/try/download/community)
+   - Follow the default installation steps.
+
+2. **Start MongoDB**:
+   - On macOS/Linux, run:
+     ```bash
+     mongod
+     ```
+   - On Windows, MongoDB usually starts automatically as a service after installation.
+
+3. **Verify it works**:
+   - The database URI in `.env` points to:
+     ```
+     mongodb://localhost:27017/movies
+     ```
+   - MongoDB will automatically create the `movies` database when you first insert data.
+
+
 ## **About the Project**
 
 In this group project, we created a platform where you can search for movies and TV shows, add them to your favorites list, edit, and get information on where to stream them.
@@ -17,7 +123,7 @@ In this group project, we created a platform where you can search for movies and
 
 ✅ **Save to Your Watchlist** – Click the heart to add movies and series to your list.
 
-✅ **Edit or write in the tile** – Allowing users to give their saved movies/TV shows a more personal touch.
+✅ **Edit or write in the tile** – Allowing users to give their saved movies/TV shows a more personal touch and it get updated if you search for that movie again.
 
 ✅ **Manage Your List** – Remove items or get the streaming link with one click.
 
@@ -56,60 +162,4 @@ This is where all your saved movies and series will be stored.
 ---
 
 ### 🚀 **Happy Watching!**
-
-Contributors & Contributions
-
-### **Fatou**
-
-- Developed the website concept and selected the most suitable API for the project.
-- Implemented a fetch function to retrieve data from the API.
-- Implemented the user interface based on the chosen design for the Search list page.
-- Optimized the responsiveness of the Search list page for larger and smaller screens.
-- Added "Enter" functionality to the search input for easier navigation.
-
-### **Gökşin**
-
-- Implemented a searchList function to fetch and display the fetched movies on the page.
-- Created a React state using useState to store search results and manage the loading indicator.
-- Connected the input bar to the API to fetch movie titles based on the search query and store them for future use.
-- Added handleButtonClick Function: Validates the search query, triggers the API call to fetch movies, handles loading/error states, and updates the results based on the response
-- Used the title API to display only movie titles in the search bar, while also fetching the full movie/TV series array to display in the pop-up.
-- Added a loading status indicator while fetching data.
-
-### **Noory**
-
-- In the development of the PopupWindow component, I implemented several key features to enhance the user experience and functionality:
-
-- Movie Detail Display:
-I created a function that dynamically renders movie details in a popup window, providing users with quick access to important information about their selected content.
-
-- Content Type Formatting:
-To improve readability and consistency, I implemented logic to capitalize the first letter of the content type (e.g., "Movie" or "TV Series") displayed in the popup window.
-
-- Watchlist Integration:
-I developed a handler function that allows users to add movies to their watchlist directly from the popup. This function also closes the popup after adding an item, streamlining the process of adding multiple items to the watchlist.
-
-- Title Truncation:
-To maintain a clean and consistent layout, I implemented a truncate function that limits the length of movie titles in the popup window. This function adds an ellipsis (...) to titles that exceed a specified character limit, ensuring that all titles fit neatly within the design.
-
-- External Streaming Link:
-I integrated a direct link to Netflix, accessible via an arrow button in the popup. This feature provides users with quick access to potential streaming options for the selected content.
-
-- Design:
-Using CSS, I crafted a visually appealing and design for the popup window. This ensures that the component looks great and functions well across various device sizes and screen resolutions.
-
-### **Mohamed**
-
-- Designed the webpage on figma, chosed font and design elements-
-
-- Created the global stylesheet for the project
-
-- Created SVG:s and background through illustrator for the project
-
-- Worked on the watchlist page, created the layout with react
-
-- Worked on the watchlist.js page right functions and structure to align with the design
-
-- Fetched the Api to pull streaming services and display only the top version of the streaming service.
-
-- created the css for the watchlist page and made it responsive.
+<3
