@@ -16,7 +16,7 @@ function WatchList() {
   const fetchWatchlist = async () => {
     setIsLoading(true);
     try {
-      const response = await fetch("http://localhost:3000/watchlist");
+      const response = await fetch("http://localhost:3000/api/watchlist");
       const data = await response.json();
       console.log("Fetched watchlist items:", data); // ✅ DEBUG: Watchlist items
       setWatchlist(data);
@@ -30,19 +30,17 @@ function WatchList() {
   // Remove a movie from watchlist
   const removeFromWatchlist = async (watchlistItemId) => {
     try {
-      console.log("Attempting to delete ID:", watchlistItemId); // ✅ DEBUG: Deleting ID
-      const response = await fetch(
-        `http://localhost:3000/watchlist/${watchlistItemId}`,
-        {
-          method: "DELETE",
-        }
-      );
-
+      console.log("Attempting to delete ID:", watchlistItemId); 
+      const response = await fetch(`http://localhost:3000/api/watchlist/${watchlistItemId}`, {
+        method: "DELETE",
+      });
+      
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || "Failed to remove");
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.error || "Failed to remove from watchlist");
       }
-
+      
+      
       // Refresh watchlist
       fetchWatchlist();
     } catch (err) {
@@ -55,7 +53,7 @@ function WatchList() {
   // Update movie in watchlist
   const updateWatchlistItem = async (id, updatedData) => {
     try {
-      await fetch(`http://localhost:3000/watchlist/${id}`, {
+      await fetch(`http://localhost:3000/api/watchlist/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -82,12 +80,12 @@ function WatchList() {
   };
 
   const handleEdit = (movie) => {
-    setEditingId(movie._id);
+    setEditingId(movie.watchlistId);
     setEditedTitle(movie.title);
   };
 
   const handleSave = (movie) => {
-    updateWatchlistItem(movie._id, { ...movie, title: editedTitle });
+    updateWatchlistItem(movie.watchlistId, { ...movie, title: editedTitle });
     setEditingId(null);
   };
 
@@ -137,11 +135,14 @@ const addToWatchlist = (movie) => {
         <p role="alert">Your watchlist is empty. Search movies to add some!</p>
       ) : (
         <ul aria-labelledby="watchlist-title">
-          {watchlist.map((item) => (
-            <li key={item._id} className="watchlist-item" tabIndex={0}>
+          {watchlist.map((item) =>
+          {
+            console.log("ITEM:", item);
+            return(
+            <li key={item.watchlistId} className="watchlist-item" tabIndex={0}>
               <div className="movie-info-section">
                 <div className="title-section">
-                  {editingId === item._id ? (
+                  {editingId === item.watchlistId ? (
                     <input
                       value={editedTitle}
                       onChange={(e) => setEditedTitle(e.target.value)}
@@ -156,7 +157,7 @@ const addToWatchlist = (movie) => {
                     </h4>
                   )}
                   <button
-                    onClick={() => removeFromWatchlist(item._id)}
+                    onClick={() => removeFromWatchlist(item.watchlistId)}
                     className="remove-button"
                     aria-label={`Remove ${item.title} from watchlist`}
                   >
@@ -187,7 +188,7 @@ const addToWatchlist = (movie) => {
                 </a>
               </div>
             </li>
-          ))}
+          )} )}
         </ul>
       )}
     </div>

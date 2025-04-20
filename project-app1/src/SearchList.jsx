@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef} from "react";
 import {useNavigate} from "react-router-dom";
 import {useMovieContext} from "./MovieContext";
-import {fetchMovie, searchMovies} from "./FetchMovie";
+import {searchMovies} from "./FetchMovie"; // Removed unused fetchMovie import
 import PopupWindow from "./PopupWindow";
 import Arrow from "./Assets/Arrow.svg";
 import "./SearchList.css";

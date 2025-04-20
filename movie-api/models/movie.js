@@ -8,14 +8,6 @@ const movieSchema = new mongoose.Schema({
   type: String
 });
 
-// Watchlist schema
-const watchlistSchema = new mongoose.Schema({
-  movieId: { type: mongoose.Schema.Types.ObjectId, ref: 'Movie', required: true },
-  userId: { type: String, required: true, default: "anonymous" },
-  addedAt: { type: Date, default: Date.now }
-});
-
+// Create and export Movie model
 const Movie = mongoose.model('Movie', movieSchema);
-const Watchlist = mongoose.model('Watchlist', watchlistSchema);
-
-module.exports = { Movie, Watchlist };
+module.exports = Movie;

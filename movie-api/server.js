@@ -1,39 +1,37 @@
+require('dotenv').config();
 const express = require('express');
-const router = express.Router();
-const Movie = require('../models/movie');
+const mongoose = require('mongoose');
+const movieRoutes = require('./routes/movies');
+const cors = require('cors'); 
+const watchlistRoutes = require('./routes/watchlist');
 
-// GET all movies (basic error handling)
-router.get('/', async (req, res) => {
-  try {
-    const movies = await Movie.find();
-    res.status(200).json(movies);
-  } catch (err) {
-    res.status(500).json({ message: err.message });
-  }
+
+const app = express();
+
+
+
+// CORS configuration
+app.use(cors({
+  origin: 'http://localhost:3001',
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], 
+  credentials: true 
+}));
+
+
+// Middleware
+app.use(express.json());
+
+// Routes
+app.use('/api/movies', movieRoutes); 
+app.use('/api/watchlist', watchlistRoutes);
+
+// Database connection
+mongoose.connect(process.env.MONGODB_URI)
+  .then(() => console.log('Connected to MongoDB'))
+  .catch(err => console.error('MongoDB connection error:', err));
+
+// Start server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-// POST a new movie 
-router.post('/', async (req, res) => {
-  const movie = new Movie({
-    title: req.body.title,
-    year: req.body.year
-  });
-  try {
-    const savedMovie = await movie.save();
-    res.status(201).json(savedMovie);
-  } catch (err) {
-    res.status(400).json({ message: err.message });
-  }
-});
-
-// DELETE a movie 
-router.delete('/:id', async (req, res) => {
-  try {
-    await Movie.findByIdAndDelete(req.params.id);
-    res.status(200).json({ message: 'Movie deleted' });
-  } catch (err) {
-    res.status(404).json({ message: 'Movie not found' });
-  }
-});
-
-module.exports = router;

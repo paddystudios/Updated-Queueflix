@@ -25,7 +25,7 @@ function PopupWindow({ movie, onClose }) {
     try {
       console.log("Adding movie with ID:", movie.id || movie.imdbID);
       
-      const response = await fetch('http://localhost:3000/watchlist', {
+      const response = await fetch('http://localhost:3000/api/watchlist', {
         method: 'POST',
         headers: { 
           'Content-Type': 'application/json' 
