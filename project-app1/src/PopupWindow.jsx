@@ -7,14 +7,12 @@ import HeartHollow from "./Assets/HeartHollow.svg";
 function PopupWindow({ movie, onClose }) {
   if (!movie) return null;
 
-  // Safely handle type formatting
   const type = movie.type 
     ? movie.type === "tv_series" 
       ? "TV Series" 
       : movie.type.charAt(0).toUpperCase() + movie.type.slice(1)
     : "Movie";
 
-  // Updated truncateText with null checks
   const truncateText = (text, maxLength) => {
     if (!text || typeof text !== 'string') return "";
     if (text.length <= maxLength) return text;
@@ -31,7 +29,7 @@ function PopupWindow({ movie, onClose }) {
           'Content-Type': 'application/json' 
         },
         body: JSON.stringify({
-          imdbID: movie.id || movie.imdbID // Only send the identifier
+          imdbID: movie.id || movie.imdbID
         })
       });
 
@@ -90,14 +88,18 @@ function PopupWindow({ movie, onClose }) {
             <p className="Watchlist-text">Add to watchlist</p>
           </div>
           <div className="watchlist-heart">
-            <img
-              src={HeartHollow}
-              alt="Add to watchlist"
-              width="24"
-              height="24"
-              style={{ cursor: "pointer" }}
+            <button
               onClick={handleAddToWatchlist}
-            />
+              className="watchlist-heart-button"
+              aria-label="Add to watchlist"
+            >
+              <img
+                src={HeartHollow}
+                alt=""
+                width="24"
+                height="24"
+              />
+            </button>
           </div>
         </div>
       </div>

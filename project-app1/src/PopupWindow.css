@@ -130,3 +130,9 @@ h2 {
   align-items: center;
 }
 
+.watchlist-heart-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
